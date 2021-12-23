@@ -7,17 +7,6 @@ const fetch = require('node-fetch');
 const config = require('./config.json');
 const client = bot;
 
-const Monitor = require('ping-monitor');
-const monitor = new Monitor({
-    website: 'https://UnitiUptimer.borjaorellana.repl.co',
-    title: 'Secundario',
-    interval: 1 
-});
-monitor.on('up', (res) => console.log(`${res.website} está encedido.`));
-monitor.on('down', (res) => console.log(`${res.website} se ha caído - ${res.statusMessage}`));
-monitor.on('stop', (website) => console.log(`${website} se ha parado.`) );
-monitor.on('error', (error) => console.log(error));
-
 client.on('ready', async () => {
   const array = [
     {
