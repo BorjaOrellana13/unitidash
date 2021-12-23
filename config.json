@@ -1,0 +1,26 @@
+ {
+    "bot": {
+        "prefix": "uasdasdasdp/",
+        "id": "850224695399153694",   
+        "secret": "qYcV-6WiCistCuMdtz1xxNmJnkSKB2hf"
+    },
+    "dashboard": {
+        "port": 3000,
+        "url": "https://UnitiMuiscdashboardborjaorellana.repl.co",
+        "callback": "https://UnitiMuiscdashboard.borjaorellana.repl.co/callback",
+        "discord_server_ID": "789239547858255932",
+        "ownerids": ["726580291073998868", "726580291073998868"],
+        "ownershow": true,
+        "owners": [
+            {
+                "id": "726580291073998868",
+                "desc": "Owner"
+            }
+        ],
+        "arc": {
+            "enabled": false,
+            "code": ""
+        }
+    },
+    "discord": "no"
+ }

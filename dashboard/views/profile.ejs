@@ -1,0 +1,76 @@
+<%- include('./includes/head.ejs', {bot, user}) %>
+<div class="container px-3 px-3 mt-5 pt-5">
+    <div class="columns container px-3 is-multiline">
+        <div class="column is-2">
+            <img draggable="false" class="pulse-avatar-<%=member.presence.status%>"  onerror=" imgerror(this);"="" src="<%= member.displayAvatarURL({dynamic: true}) %>" style="width: 200px; border-radius: 50%;">
+        </div>
+        <div class="column is-6">
+            <br>
+            <p translate="no" class="has-text-white is-size-5" style="margin-bottom: 10px; font-size: 40px;"><%= user.username %><span class="is-size-4" style="opacity: 0.2;" style="font-size: 30px;">#<%= user.discriminator %></span> <i style="font-size: 30px;" class="status-circle fad fa-circle status-<%=member.presence.status%>"></i></p>
+           
+            <br>
+        </div>
+  </div>
+  <a href="/uptime" style="float: right;" class="btn btn-primary has-text-white mb-3">Añadir Monitor</a>
+<table id="tableData" class="table table-dark table-striped" data-toggle="table" data-pagination="true" data-search="true">
+  <thead>
+  <th>Link</th>
+  <th>Nombre</th>
+  <th>Operacion</th>
+  <th>Editar</th>
+  </thead>
+          <% uptimes.map(a => {%>
+            <tr>
+                <td><%= a.link %></td>
+                <td><%= a.name %></td>
+              <td><a onclick='deletequest("<%= a.code %>")' class="btn btn-danger">Eliminar</a></td>
+              <td><a onclick='href="/uptime/<%= a.code %>/edit"' class="btn btn-primary">Editar</a></td>
+            </tr>
+         <% }); %>
+</table>
+</div>    
+</div>
+</div>
+
+<script>
+var urlParams = new URLSearchParams(window.location.search);
+    if(urlParams.has('success') && urlParams.get('success')){
+    Swal.fire({
+     icon: 'success',
+     title: 'Successful...',
+     closeOnConfirm: false,
+     text: urlParams.get('message'),
+     footer: 'UnitiUptime Copyright 2021'
+    }).then((result) => {
+  if (result.isConfirmed) {
+    window.location.href = `/@me`;
+  }
+})
+}
+function deletequest(uptimecode) {
+Swal.fire({
+  title: 'Esta Segur@?',
+  text: "¿Está seguro de que desea eliminar permanentemente el enlace que seleccionó?",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonText: 'Si',
+  cancelButtonText: 'No',
+  reverseButtons: true
+}).then((result) => {
+  if (result.isConfirmed) {
+    window.location.href = '/uptime/'+uptimecode+'/delete';
+  } else {
+    Swal.fire(
+      'Cancelado..',
+      'Se canceló la eliminación del enlace',
+      'error'
+    )
+  }
+})
+}
+</script>
+<br><br><br>
+<%- include('./includes/foot.ejs') %>
+
+
+

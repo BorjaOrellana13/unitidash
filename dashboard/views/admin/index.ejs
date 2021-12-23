@@ -1,0 +1,31 @@
+<head>
+    <title><%= title %> | UnitiUptime</title>
+    <link rel="icon" type="image/x-icon" href="/img/nighthost.png"/>
+</head>
+
+    <div class="dropdown-menu position-absolute" aria-labelledby="userProfileDropdown">
+                        <div class="user-profile-section">
+                            <div class="media mx-auto">
+                                <img src="<%= bot.users.cache.get(user.id).avatarURL({dynamic: true}) %>" class="img-fluid mr-2" alt="avatar">
+                                <div class="media-body">
+                                    <h5><%= user.username %></h5>
+                                </div>
+                            </div>
+                        </div>
+<div id="compact_submenuSidebar" class="submenu-sidebar">
+                <div class="submenu" id="admin">
+                    <ul class="submenu-list" data-parent-element="#dashboard"> 
+                        <li class="">
+                            <a href="/admin/userban"><i class="fad fa-ban"></i> Banear Usuarios</a>
+                        </li>
+                        <li class="">
+                            <a href="/admin/maintence"><i class="fad fa-server"></i> Web Mantenimiento</a>
+                        </li>
+                        <li class="">
+                            <a href="/admin/uptimes"><i class="fad fa-server"></i> Uptimes</a>
+                        </li>
+                        
+                    </a>
+                    </ul>
+                </div>
+</div>
